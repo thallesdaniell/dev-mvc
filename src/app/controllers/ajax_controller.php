@@ -7,12 +7,12 @@
  */
 class ajax_controller extends Core\Controller implements Core\Interfacemvc
 {
-
+    use \Core\Authentication;
+ 
     public function index()
     {
         
-    }
-
+    }   
     public function endereco()
     {
         $autocomplete = new App\models\autocomplete_model();
@@ -22,12 +22,14 @@ class ajax_controller extends Core\Controller implements Core\Interfacemvc
     public function session()
     {
         echo 'OK';
-        $_SESSION["duracao"] = time() + 600;
+        $this->set_session_duracao(600);
     }
 
     public function init()
     {
         $this->ativo();
     }
+
+ 
 
 }
