@@ -1,0 +1,7 @@
+# evitar listar diretorios
+Options -Indexes
+
+
+# Acesso restrito!
+deny from all
+
