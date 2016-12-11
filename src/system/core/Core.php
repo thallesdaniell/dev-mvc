@@ -66,7 +66,7 @@ define('DEBUG', true);
  *
  *
   --------------------------------------------------
- * defnição das constantes                         *
+ * defnição das constantes     j                   *
  * -------------------------------------------------
  */
 define('VERSAO', '1.1.0');
