@@ -5,114 +5,128 @@ namespace Core;
 trait Authentication
 {
 
-    private $_session_id;
-    private $_session_nome;
-    private $_session_setor;
-    private $_session_time;
-    private $_session_permissao;
-
-    private function construtor()
-    {
-        $this->_session_id        = $_SESSION['usu_id'];
-        $this->_session_nome      = $_SESSION['usu_nome'];
-        $this->_session_setor     = $_SESSION['usu_setor'];
-        $this->_session_permissao = $_SESSION['usu_permissao'];
-        $this->_session_time      = $_SESSION['usu_duracao'];
-        return $this;
-    }
-
-    public function getSessionId()
-    {
-        $this->construtor();
-        return $this->_session_id;
-    }
-
-    public function getSessionNome()
-    {
-        $this->construtor();
-        return $this->_session_nome;
-    }
-
-    public function getSessionSetor()
-    {
-        $this->construtor();
-        return $this->_session_setor;
-    }
-
-    public function getSessionTime()
-    {
-        $this->construtor();
-        return $this->_session_time;
-    }
-
-    public function getSessionPermissao()
-    {
-        $this->construtor();
-        return $this->_session_permissao;
-    }
-
-    public function setSessionPermissao($permissao)
+    public function sessionSetPermissao($permissao)
     {
         $_SESSION['usu_permissao'] = $permissao;
     }
 
-    public function setSessionId($id)
+    public function sessionSetId($id)
     {
         $_SESSION['usu_id'] = $id;
     }
 
-    public function setSessionNome($nome)
+    public function sessionSetNome($nome)
     {
         $_SESSION['usu_nome'] = $nome;
     }
 
-    public function setSessionSetor($setor)
+    public function sessionSetSetor($setor)
     {
         $_SESSION['usu_setor'] = $setor;
     }
 
-    public function setSessionTime(int $duracao)
+    public function sessionSetTime(int $duracao)
     {
         $_SESSION['usu_duracao'] = time() + $duracao;
     }
 
+    public function sessionGetId()
+    {
+        return $_SESSION['usu_id'];
+    }
+
+    public function sessionGetNome()
+    {
+        return $_SESSION['usu_nome'];
+    }
+
+    public function sessionGetSetor()
+    {
+        return $_SESSION['usu_setor'];
+    }
+
+    public function sessionGetTime()
+    {
+        return $_SESSION['usu_duracao'];
+    }
+
+    public function sessionGetPermissao()
+    {
+        return $_SESSION['usu_permissao'];
+    }
+
+    public function sessionGetOrigem()
+    {
+        return $_SESSION['usu_origem'];
+    }
+
+    public function sessionGetAgent()
+    {
+        return $_SERVER['HTTP_USER_AGENT'];
+    }
+
+    public function sessionGetIp()
+    {
+        if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else
+        {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
+    public function sessionSetOrigem()
+    {
+        $_SESSION['usu_origem'] = sha1($this->sessionGetAgent() . $this->sessionGetIp());
+    }
+
+    public function sessionValidarOrigem()
+    {
+        $valid = sha1($this->sessionGetAgent() . $this->sessionGetIp());
+        if ($this->sessionGetOrigem() == $valid)
+            echo 'origem valida';
+    }
+
     protected function sessionAtivo()
     {
-        $this->construtor();
 
-        if (isset($this->_session_id) AND $this->_session_time > time())
+        if ($this->sessionGetId() ==! null AND $this->sessionGetTime() > time())
         {
             $time = time() + 720;
-            $this->setSessionTime($time);
-
+            $this->sessionSetTime($time);
             return true;
         }
         else
         {
-            $this->sessionLogout();
-
+            $this->sessionToLogout();
             return false;
         }
     }
 
-    protected function sessionLogout()
+    protected function sessionToLogout()
     {
-        $this->destruirSession();
+        $this->sessionDestruir();
 
         header("Location: " . BASEURL);
     }
 
-    protected function destruirSession()
+    protected function sessionDestruir()
     {
         session_unset();
         session_destroy();
         session_regenerate_id();
     }
 
-    public function permissaoModulo($modulo, $item)
+    protected function sessionPermissaoModulo($modulo, $item)
     {
-        $this->construtor();
-        $permissao = $this->_session_permissao;
+        $permissao = $this->sessionGetPermissao();
 
         if (in_array($item, array_values($permissao[$modulo])))
         {
@@ -124,7 +138,7 @@ trait Authentication
         }
     }
 
-    protected function toLogin()
+    protected function sessionToLogin()
     {
         header("Location: " . BASEURL);
     }
