@@ -55,7 +55,7 @@ class usuario_model extends Model
             {
                 if ($this->_usu_ativo == 'n')
                 {
-                    $this->limparSession();
+                    $this->destruirSession();
 
                     return [
                         "status" => "inativo",
@@ -63,7 +63,7 @@ class usuario_model extends Model
                 }
                 elseif ($this->_usu_primeiroacesso == 's')
                 {
-                    $this->limparSession();
+                    $this->destruirSession();
 
                     return [
                         "status"            => "primeiroacesso",
@@ -76,7 +76,7 @@ class usuario_model extends Model
                 }
                 elseif ($this->_usu_resetarsenha == 's')
                 {
-                    $this->limparSession();
+                    $this->destruirSession();
 
                     return [
                         "usu_nome" => $this->_usu_nome,
@@ -124,13 +124,12 @@ class usuario_model extends Model
             $this->_usu_cpf            = $sql['usu_cpf'];
             $this->_usu_dt_nascimento  = $sql['usu_dt_nascimento'];
             $this->_usu_login          = $sql['usu_login'];
-
-            $_SESSION['usuario_id']    = $sql['usu_id'];
-            $_SESSION['nome']          = $sql['usu_nome'];
-            $_SESSION['permissao']     = $sql['usu_permissao'];
-            $_SESSION['nome_dep']      = $sql['dep_nome'];
-            $_SESSION['descricao_dep'] = $sql['dep_descricao'];
-            $_SESSION["duracao"]       = time() + 720;
+            
+            $this->setSessionNome($sql['usu_nome']);
+            $this->setSessionId($sql['usu_id']);
+            $this->setSessionPermissao($sql['dep_nome'].' '.$sql['usu_permissao']);
+            $this->setSessionSetor($sql['dep_descricao']);
+            $this->setSessionTime(time() + 720);
 
             return true;
         }
@@ -155,47 +154,6 @@ class usuario_model extends Model
             'log_ten_ip'    => $this->ip()];
 
         $this->insert('log_tentativa', $dados);
-    }
-
-    /**
-     * @return true ou false retorna se a sessao está ativa se nao remove o usuario
-     */
-    protected function ativo()
-    {
-        if (isset($_SESSION['usuario_id']) AND $_SESSION["duracao"] > time())
-        {
-            $_SESSION["duracao"] = time() + 750;
-
-            return true;
-        }
-        else
-        {
-            $this->logout();
-
-            return false;
-        }
-    }
-
-    /**
-     * @return void Remove sessao e redireciona para login
-     */
-    protected function logout()
-    {
-        $this->limparSession();
-
-        header("Location: " . BASEURL . "login");
-    }
-
-    /**
-     * @return void limpa sessao
-     */
-    private function limparSession()
-    {
-        session_unset();
-
-        session_destroy();
-
-        session_regenerate_id();
     }
 
     /**

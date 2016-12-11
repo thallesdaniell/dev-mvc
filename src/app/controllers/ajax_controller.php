@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Description of ajax_controller
- *
- * @author thalles
- */
 class ajax_controller extends Core\Controller implements Core\Interfacemvc
 {
     use \Core\Authentication;
@@ -22,12 +17,12 @@ class ajax_controller extends Core\Controller implements Core\Interfacemvc
     public function session()
     {
         echo 'OK';
-        $this->set_session_duracao(600);
+        $this->setSessionTime(600);
     }
 
     public function init()
     {
-        $this->ativo();
+        $this->sessionAtivo();
     }
 
  

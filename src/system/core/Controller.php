@@ -5,8 +5,6 @@ namespace Core;
 Class Controller extends \Core\Model
 {
 
-    use Authentication;
-
     protected function View($layout = '', $dados = null)
     {
         if (file_exists(VIEWS . $layout . '.php'))
@@ -18,7 +16,8 @@ Class Controller extends \Core\Model
         }
         else
         {
-            echo 'erro nao achou a view';
+            #die($this->includes('page_404'));
+            echo 'Erro ao carregar View.';
         }
     }
 
