@@ -2,22 +2,16 @@
 
 namespace Helper;
 
-Class imagem_model extends Model
+Class imagem extends Model
 {
 
-    private
-            $_metodo;
-    private
-            $_fonte;
-    private
-            $_diretorio;
-    private
-            $_acao;
-    private
-            $_header;
+    private $_metodo;
+    private $_fonte;
+    private $_diretorio;
+    private $_acao;
+    private $_header;
 
-    public
-            function __construct()
+    public  function __construct()
     {
         $this->_header = header("Content-type: image/jpeg");
 
@@ -30,16 +24,14 @@ Class imagem_model extends Model
         $this->_diretorio = SYSTEM . 'protegido/certificado/';
     }
 
-    public
-            function metodo()
+    public  function metodo()
     {
         return $this->_metodo;
     }
 
     ######Tipo de Imagem ###########
 
-    public
-            function exibirImagem()
+    public  function exibirImagem()
     {
 
         if ($this->_acao != NULL && is_file($this->_diretorio . $this->_acao))
@@ -48,8 +40,7 @@ Class imagem_model extends Model
         }
     }
 
-    public
-            function exibirQrCode()
+    public  function exibirQrCode()
     {
 
         $qrcode = new Qrcode($this->_acao, 'Q');
@@ -57,8 +48,7 @@ Class imagem_model extends Model
         $qrcode->displayPNG(100);
     }
 
-    public
-            function exibirTexto()
+    public function exibirTexto()
     {
 
         $tamanhofonte = 150;
