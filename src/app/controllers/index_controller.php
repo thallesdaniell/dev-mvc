@@ -1,7 +1,5 @@
 <?php
 
-use Core;
-
 class index_controller extends Core\Controller implements Core\Interfacemvc
 {
     public function index()

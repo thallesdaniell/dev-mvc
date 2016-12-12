@@ -173,3 +173,42 @@ if (DEBUG == true)
 
     set_error_handler('trataErros');
 }
+
+/* * -----------------------------------------------
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+  --------------------------------------------------
+ * Tete Conexao Banco
+ * -------------------------------------------------
+ */
+if (DEBUG == true)
+{
+    try
+    {
+        $dbo = new PDO('mysql:host=' . DB_HOST. ';dbname=' . DB_BANCO, DB_USUARIO, DB_SENHA);
+    } catch (PDOException $e)
+    {
+        switch ($e->getCode())
+        {
+            case 1049:
+                 die("Nome do banco invalido!<br/>");
+                break;
+            
+            case 1045:
+                 die("Usuário ou senha inválidos!<br/>");
+                break;
+            
+            case 2002:
+                 die("Host Incorreto!<br/>");
+                break;
+        }
+    }
+}

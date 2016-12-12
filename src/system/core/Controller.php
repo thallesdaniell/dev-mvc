@@ -16,8 +16,14 @@ Class Controller extends \Core\Model
         }
         else
         {
-            #die($this->includes('page_404'));
-            echo 'Erro ao carregar View.';
+            if (DEBUG == true)
+            {
+                die('Erro ao carregar View.');
+            }
+            else
+            {
+                die($this->includes('page_404'));
+            }
         }
     }
 

@@ -14,7 +14,30 @@ class Model extends \Helper\funcoes_helper
 
         if (!isset($this->instance))
         {
-            $this->instance = new PDO('' . DB_DRIVER . ':host=' . DB_HOST . '; dbname=' . DB_BANCO . '', DB_USUARIO, DB_SENHA, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            try
+            {
+                $this->instance = new PDO('' . DB_DRIVER . ':host=' . DB_HOST . '; dbname=' . DB_BANCO . '', DB_USUARIO, DB_SENHA, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            } catch (PDOException $e)
+            {
+                if (DEBUG == true)
+                {
+                    switch ($e->getCode())
+                    {
+                        case 1049:
+                            die("Nome do banco invalido!<br/>");
+                            break;
+
+                        case 1045:
+                            die("Usuário ou senha inválidos!<br/>");
+                            break;
+
+                        case 2002:
+                            die("Host Incorreto!<br/>");
+                            break;
+                    }
+                }
+            }
+
             $this->instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->instance->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);
         }

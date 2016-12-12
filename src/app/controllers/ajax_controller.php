@@ -24,7 +24,4 @@ class ajax_controller extends Core\Controller implements Core\Interfacemvc
     {
         $this->sessionAtivo();
     }
-
- 
-
 }

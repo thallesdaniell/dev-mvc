@@ -64,8 +64,14 @@ class System extends \Helper\funcoes_helper
 
         if (!file_exists($controlador_path))
         {
-            #die($this->includes('page_404'));
-            die('Erro ao carregar Controller.');
+            if (DEBUG == true)
+            {
+                die('Erro ao carregar arquivo Controller.');
+            }
+            else
+            {
+                die($this->includes('page_404'));
+            }
         }
 
         require_once ($controlador_path);
@@ -74,7 +80,14 @@ class System extends \Helper\funcoes_helper
 
         if (!method_exists($controlador, $metodo))
         {
-            die($this->includes('page_404'));
+            if (DEBUG == true)
+            {
+                die('Erro ao carregar método do Controller.');
+            }
+            else
+            {
+                die($this->includes('page_404'));
+            }
         }
 
         $controlador->init();
