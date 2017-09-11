@@ -1,0 +1,7 @@
+[11-Sep-2017 11:20:36 America/Recife] PHP Fatal error:  Uncaught BadMethodCallException: Call to undefined method App\models\usuario_model::table() in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Eloquent\Model.php:1423
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php(10): Illuminate\Database\Eloquent\Model->__call('table', Array)
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\System.php(94): index_controller->index()
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\index.php(7): Core\System->run()
+#3 {main}
+  thrown in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Eloquent\Model.php on line 1423

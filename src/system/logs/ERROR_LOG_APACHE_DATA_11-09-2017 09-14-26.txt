@@ -1,0 +1,9 @@
+Erro: [8] Tipo: [Undefined index: driver] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php] na linha [115]
+Erro: [8] Tipo: [Undefined index: driver] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php] na linha [77]
+[11-Sep-2017 09:14:26 America/Recife] PHP Fatal error:  Uncaught InvalidArgumentException: Unsupported driver [] in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php:286
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php(77): Illuminate\Database\Connectors\ConnectionFactory->createConnection(NULL, Object(Closure), 'teste', '', Array)
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php(51): Illuminate\Database\Connectors\ConnectionFactory->createSingleConnection(Array)
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php(119): Illuminate\Database\Connectors\ConnectionFactory->make(Array, 'default')
+#3 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php(74): Illuminate\Database\DatabaseManager->makeConnection('default')
+#4 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\El in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php on line 286

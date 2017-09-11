@@ -1,0 +1,2 @@
+Erro: [2] Tipo: [require_once(C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core): failed to open stream: Permission denied] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\BaseModel.php] na linha [7]
+[11-Sep-2017 08:51:52 America/Recife] PHP Fatal error:  require_once(): Failed opening required 'C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core../' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\BaseModel.php on line 7

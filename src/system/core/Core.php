@@ -101,9 +101,9 @@ define('DIR_ROOT', substr($_SERVER['DOCUMENT_ROOT'], 0, -1));
  * -------------------------------------------------
  */
 define('DB_DRIVER', 'mysql');
-define('DB_BANCO', 'sema');
+define('DB_BANCO', 'teste');
 define('DB_USUARIO', 'root');
-define('DB_SENHA', '094789th');
+define('DB_SENHA', '');
 define('DB_HOST', 'localhost');
 /* * -----------------------------------------------
  *

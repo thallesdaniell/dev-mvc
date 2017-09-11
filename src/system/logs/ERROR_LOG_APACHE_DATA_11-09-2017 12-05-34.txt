@@ -1,0 +1,1 @@
+Erro: [8] Tipo: [Undefined variable: user] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php] na linha [20]

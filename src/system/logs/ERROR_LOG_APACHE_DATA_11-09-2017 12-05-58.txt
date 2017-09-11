@@ -1,0 +1,18 @@
+Erro: [2] Tipo: [substr() expects parameter 1 to be string, object given] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Str.php] na linha [121]
+Erro: [2] Tipo: [substr() expects parameter 1 to be string, object given] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Str.php] na linha [121]
+Erro: [2] Tipo: [Illegal offset type in isset or empty] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php] na linha [72]
+Erro: [2] Tipo: [array_key_exists(): The first argument should be either a string or an integer] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Arr.php] na linha [151]
+Erro: [2] Tipo: [strpos() expects parameter 1 to be string, object given] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Arr.php] na linha [288]
+Erro: [2] Tipo: [explode() expects parameter 2 to be string, object given] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Arr.php] na linha [292]
+Erro: [2] Tipo: [Invalid argument supplied for foreach()] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\support\Arr.php] na linha [292]
+Erro: [2] Tipo: [Illegal offset type in isset or empty] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php] na linha [108]
+Erro: [8] Tipo: [Undefined index: driver] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php] na linha [115]
+Erro: [8] Tipo: [Undefined index: driver] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php] na linha [77]
+Erro: [8] Tipo: [Undefined index: database] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php] na linha [77]
+[11-Sep-2017 12:05:58 America/Recife] PHP Fatal error:  Uncaught InvalidArgumentException: Unsupported driver [] in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php:286
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php(77): Illuminate\Database\Connectors\ConnectionFactory->createConnection(NULL, Object(Closure), NULL, '', Array)
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php(51): Illuminate\Database\Connectors\ConnectionFactory->createSingleConnection(Array)
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php(119): Illuminate\Database\Connectors\ConnectionFactory->make(Array, Object(Illuminate\Database\MySqlConnection))
+#3 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\DatabaseManager.php(74): Illuminate\Database\DatabaseManager->makeConnection(Object(Illuminate\Database\MySqlConnection))
+#4 C:\xampp\ht in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php on line 286

@@ -1,0 +1,7 @@
+[11-Sep-2017 10:57:09 America/Recife] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'teste' in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\Connector.php:67
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\Connector.php(67): PDO->__construct('mysql:host=127....', NULL, NULL, Array)
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\Connector.php(43): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=127....', NULL, NULL, Array)
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connectors\ConnectionFactory.php(183): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\Databas in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Connection.php on line 664

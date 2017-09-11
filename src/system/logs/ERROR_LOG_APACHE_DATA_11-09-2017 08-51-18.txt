@@ -1,0 +1,2 @@
+Erro: [2] Tipo: [require_once(/scr/system/config/config.php): failed to open stream: No such file or directory] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\BaseModel.php] na linha [7]
+[11-Sep-2017 08:51:18 America/Recife] PHP Fatal error:  require_once(): Failed opening required '/scr/system/config/config.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\BaseModel.php on line 7

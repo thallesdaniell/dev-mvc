@@ -1,0 +1,6 @@
+[11-Sep-2017 11:19:23 America/Recife] PHP Fatal error:  Uncaught Error: Call to a member function where() on string in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php:10
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\System.php(94): index_controller->index()
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\index.php(7): Core\System->run()
+#2 {main}
+  thrown in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php on line 10

@@ -2,7 +2,7 @@
 
 namespace Core;
 
-Class Controller extends \Core\Model
+Class Controller extends \Core\BaseModel
 {
 
     protected function View($layout = '', $dados = null)

@@ -1,0 +1,8 @@
+Erro: [8] Tipo: [Undefined variable: capsule] No arquivo: [C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\Connection.php] na linha [14]
+[11-Sep-2017 12:03:17 America/Recife] PHP Fatal error:  Uncaught Error: Call to a member function addConnection() on null in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\Connection.php:14
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php(9): Core\Connection->__construct()
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\System.php(93): index_controller->init()
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\index.php(7): Core\System->run()
+#3 {main}
+  thrown in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\Connection.php on line 14

@@ -1,0 +1,9 @@
+[11-Sep-2017 10:11:30 America/Recife] PHP Fatal error:  Uncaught Error: Class 'App\models\User' not found in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Eloquent\Concerns\HasRelationships.php:506
+Stack trace:
+#0 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Eloquent\Concerns\HasRelationships.php(106): Illuminate\Database\Eloquent\Model->newRelatedInstance('App\\models\\User')
+#1 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\models\usuario_model.php(23): Illuminate\Database\Eloquent\Model->belongsTo('App\\models\\User')
+#2 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\app\controllers\index_controller.php(10): App\models\usuario_model->user()
+#3 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\src\system\core\System.php(94): index_controller->index()
+#4 C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\index.php(7): Core\System->run()
+#5 {main}
+  thrown in C:\xampp\htdocs\thallesdaniel-mvc-c1497d0f0644\vendor\illuminate\database\Eloquent\Concerns\HasRelationships.php on line 506
